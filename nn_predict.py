@@ -7,10 +7,11 @@ def relu(x):
 
 
 def softmax(x):
-    x = np.array(x)  # 確保輸入是 numpy array
-    shift_x = x - np.max(x, axis=-1, keepdims=True)
-    exp_x = np.exp(shift_x)
-    return exp_x / np.sum(exp_x, axis=-1, keepdims=True)
+x = np.array([2.0, 1.0, 0.1])
+y = softmax(x)
+assert np.all(y >= 0) and np.all(y <= 1)
+assert np.isclose(np.sum(y), 1.0)
+
 
 
 # === Flatten ===
