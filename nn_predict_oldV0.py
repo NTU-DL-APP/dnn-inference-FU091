@@ -3,12 +3,11 @@ import json
 
 # === Activation functions ===
 def relu(x):
-    return np.where(x > 0, x, 0)
-
+    # TODO: Implement the Rectified Linear Unit
+    return x
 
 def softmax(x):
-    x = np.array(x)  # 確保輸入是 numpy array
-    shift_x = x - np.max(x, axis=-1, keepdims=True)
+    shift_x = x - np.max(x, axis=-1, keepdims=True)  # 避免 overflow
     exp_x = np.exp(shift_x)
     return exp_x / np.sum(exp_x, axis=-1, keepdims=True)
 
